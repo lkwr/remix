@@ -92,7 +92,7 @@ export function flatRoutesUniversal(
       };
 
       if (index) {
-        let invalidChildRoutes = Object.values(routeMap).filter(
+        let invalidChildRoutes = routes.filter(
           (routeInfo) => routeInfo.parentId === childRoute.id
         );
 
@@ -342,7 +342,7 @@ function getRouteMap(
   appDirectory: string,
   routePaths: string[],
   prefix: string
-) {
+): Readonly<Map<string, RouteInfo>> {
   let routeMap = new Map<string, RouteInfo>();
   let nameMap = new Map<string, RouteInfo>();
 
